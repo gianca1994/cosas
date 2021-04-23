@@ -9,7 +9,7 @@ def register_user():
         cur = conn.cursor()
         sql = "insert into users(name, password) values (%s,%s)"
 
-        virgin_name, virgin_password = check_user_password()
+        virgin_name, virgin_password = check_user_password(True)
 
         user = crypt.crypt(virgin_name, Users.SALT)
         passw = crypt.crypt(virgin_password, Users.SALT)

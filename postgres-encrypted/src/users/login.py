@@ -4,7 +4,7 @@ from src.users import conn, set_user_name, set_user_password, check_user_passwor
 
 def login():
     try:
-        virgin_name, virgin_password = check_user_password()
+        virgin_name, virgin_password = check_user_password(False)
         user_name, user_password = encrypt(virgin_name, virgin_password)
         statement = f"SELECT name, password from users WHERE name='{user_name}' AND password = '{user_password}';"
         cursor = conn.cursor()
